@@ -74,6 +74,7 @@ return {
 			servers = {
 				lua_ls = {},
 				pyright = {},
+				terraformls = {},
 				ts_ls = {},
 				tailwindcss = {},
 				eslint = {
