@@ -13,8 +13,11 @@ require("caedan.lazy")
 
 -- Set colorscheme
 -- vim.cmd.colorscheme("rose-pine-dawn")
+-- vim.cmd.colorscheme("rose-pine-moon")
+-- vim.cmd.colorscheme("rose-pine-main")
 vim.cmd.colorscheme("tokyonight-moon")
 -- vim.cmd.colorscheme("vesper")
+-- vim.cmd.colorscheme("jb")
 
 -- Init stuff for Lualine because doing this inside the config function doesn't work properly
 local lualine = require("lualine")
