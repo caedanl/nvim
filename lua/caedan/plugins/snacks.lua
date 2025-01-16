@@ -21,6 +21,12 @@ return {
 			gitbrowse = { enabled = true },
 			indent = { enabled = true, animate = { enabled = false } },
 			notifier = { enabled = true },
+			picker = {
+				enabled = true,
+				-- layout = {
+				-- 	preset = "vscode",
+				-- },
+			},
 		},
 	},
 }
