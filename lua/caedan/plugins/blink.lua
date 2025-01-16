@@ -75,7 +75,8 @@ return {
 				lua_ls = {},
 				pyright = {},
 				terraformls = {},
-				ts_ls = {},
+				-- ts_ls = {},
+				vtsls = {},
 				tailwindcss = {},
 				eslint = {
 					on_attach = function(_, bufnr)

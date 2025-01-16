@@ -9,7 +9,7 @@ return {
 			require("mason").setup({})
 
 			require("mason-lspconfig").setup({
-				ensure_installed = { "ts_ls", "pyright", "terraformls" },
+				ensure_installed = { "vtsls", "ts_ls", "pyright", "terraformls" },
 			})
 
 			require("mason-tool-installer").setup({
@@ -17,6 +17,7 @@ return {
 					"prettierd", -- prettier formatter
 					"stylua", -- lua formatter
 					"pylint",
+					"eslint",
 					"eslint_d",
 				},
 			})
