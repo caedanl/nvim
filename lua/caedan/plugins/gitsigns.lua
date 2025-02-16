@@ -13,6 +13,7 @@ return {
 		on_attach = function(bufnr)
 			local gitsigns = require("gitsigns")
 
+			-- utility function to set up keymaps
 			local function map(mode, l, r, opts)
 				opts = opts or {}
 				opts.buffer = bufnr
@@ -57,7 +58,7 @@ return {
 			-- map("n", "<leader>hD", function()
 			-- 	gitsigns.diffthis("~")
 			-- end)
-			map("n", "<leader>tq", gitsigns.toggle_deleted)
+			-- map("n", "<leader>tq", gitsigns.toggle_deleted)
 		end,
 	},
 	-- config = function()
