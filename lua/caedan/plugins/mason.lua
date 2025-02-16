@@ -9,7 +9,7 @@ return {
 			require("mason").setup({})
 
 			require("mason-lspconfig").setup({
-				ensure_installed = { "vtsls", "ts_ls", "pyright", "terraformls" },
+				ensure_installed = { "vtsls", "ts_ls", "pyright", "terraformls", "tailwindcss" },
 			})
 
 			require("mason-tool-installer").setup({
