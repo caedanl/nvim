@@ -48,4 +48,32 @@ return {
 			-- vim.cmd("colorscheme jb")
 		end,
 	},
+	{
+		"clearaspect/onehalf",
+		lazy = false,
+		priority = 1000,
+	},
+	{
+		"vague2k/vague.nvim",
+		config = function()
+			-- NOTE: you do not need to call setup if you don't want to.
+			require("vague").setup({
+				transparent = true,
+				-- optional configuration here
+			})
+		end,
+	},
+	{
+		"RRethy/base16-nvim",
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				transparent_background = true,
+			})
+		end,
+	},
 }
