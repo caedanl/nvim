@@ -1,31 +1,51 @@
 return {
 	{
 		"saghen/blink.cmp",
-		lazy = false, -- lazy loading handled internally
+		-- lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = "rafamadriz/friendly-snippets",
 
-		-- use a release tag to download pre-built binaries
-		version = "v0.9.*",
+		-- version = "v0.9.*",
+		version = "0.12.3",
+		---@modeule "blink.cmp"
+		---@type blink.cmp.Config
 		opts = {
 			keymap = {
 				preset = "enter",
-				-- ["<CR>"] = { "select_and_accept", "fallback" },
-				-- ["<Tab>"] = { "select_and_accept", "fallback" },
-				cmdline = {
-					preset = "super-tab",
-					-- ["<Tab>"] = { "select_and_accept", "fallback" },
-				},
+				["<C-p>"] = { "select_prev", "fallback" },
+				["<C-n>"] = { "select_next", "fallback" },
+				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
 			},
 			appearance = {
 				use_nvim_cmp_as_default = false,
 				nerd_font_variant = "mono",
 			},
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "path", "snippets" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 1000,
+					},
+				},
 			},
-
-			signature = { enabled = true },
+			cmdline = {
+				keymap = {
+					preset = "super-tab",
+				},
+				sources = function()
+					local type = vim.fn.getcmdtype()
+					if type == "/" or type == "?" then
+						return { "buffer" }
+					end
+					if type == ":" then
+						return { "cmdline" }
+					end
+				end,
+			},
+			signature = { enabled = true, window = { border = "rounded" } },
 
 			completion = {
 				accept = {
@@ -34,6 +54,7 @@ return {
 					},
 				},
 				menu = {
+					border = "rounded",
 					draw = {
 						columns = {
 							{ "kind_icon", "label", "label_description", gap = 1 },
@@ -44,6 +65,10 @@ return {
 				documentation = {
 					auto_show = true,
 					auto_show_delay_ms = 0,
+					treesitter_highlighting = true,
+					window = {
+						border = "rounded",
+					},
 				},
 			},
 		},
@@ -76,7 +101,7 @@ return {
 				pyright = {},
 				terraformls = {},
 				-- ts_ls = {},
-				vtsls = {},
+				vtsls = {}, -- better than ts_ls
 				tailwindcss = {},
 				eslint = {
 					on_attach = function(_, bufnr)
@@ -99,8 +124,8 @@ return {
 					local keymap = vim.keymap -- for conciseness
 					local keymapOpts = { buffer = ev.buf, silent = true }
 
-					keymapOpts.desc = "Show LSP references"
-					keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", keymapOpts) -- show definition, references
+					-- keymapOpts.desc = "Show LSP references"
+					-- keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", keymapOpts) -- show definition, references
 
 					keymapOpts.desc = "Go to definition"
 					keymap.set("n", "gd", vim.lsp.buf.definition, keymapOpts) -- go to declaration

@@ -1,3 +1,64 @@
+local myLayout = {
+	layout = {
+		preset = "vertical",
+		layout = {
+			width = 0.8,
+			min_width = 120,
+			height = 0.8,
+		},
+	},
+}
+
+function FilePicker()
+	require("snacks").picker.files({
+		layout = {
+			preset = "vertical",
+			layout = {
+				width = 0.8,
+				min_width = 120,
+				height = 0.8,
+			},
+		},
+	})
+end
+
+function GrepPicker()
+	require("snacks").picker.grep({
+		layout = {
+			preset = "vertical",
+			layout = {
+				width = 0.8,
+				min_width = 120,
+				height = 0.8,
+			},
+		},
+	})
+end
+
+function BufferPicker()
+	require("snacks").picker.buffers()
+end
+
+function GitStatusPicker()
+	require("snacks").picker.git_status()
+end
+
+function PickerPicker()
+	require("snacks").picker.pickers()
+end
+
+function SymbolPicker()
+	require("snacks").picker.lsp_symbols()
+end
+
+function WorkspaceSymbolsPicker()
+	require("snacks").picker.lsp_workspace_symbols()
+end
+
+function LspReferencePicker()
+	require("snacks").picker.lsp_references()
+end
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -5,29 +66,44 @@ return {
 		lazy = false,
 		keys = {
 			{
-				"<leader>f",
-				function()
-					require("snacks").picker.files({
-						layout = {
-							preset = "vertical",
-							layout = {
-								-- box = "",
-								width = 0.8,
-								min_width = 120,
-								height = 0.8,
-								-- {
-								-- 	box = "vertical",
-								-- 	border = "rounded",
-								-- 	title = "{title} {live} {flags}",
-								-- 	{ win = "input", height = 1, border = "bottom" },
-								-- 	{ win = "list", border = "none" },
-								-- },
-								-- { win = "preview", title = "{preview}", border = "rounded" },
-							},
-						},
-					})
-				end,
+				"<leader>sf",
+				FilePicker,
 				desc = "Find files",
+			},
+			{
+				"<leader>sg",
+				GrepPicker,
+				desc = "Grep",
+			},
+			{
+				"<leader><leader>",
+				BufferPicker,
+				desc = "Buffers",
+			},
+			{
+				"<leader>so",
+				GitStatusPicker,
+				desc = "Git Status",
+			},
+			{
+				"<leader>sp",
+				PickerPicker,
+				desc = "Pickers",
+			},
+			{
+				"<leader>sl",
+				SymbolPicker,
+				desc = "Symbols",
+			},
+			{
+				"<leader>sk",
+				WorkspaceSymbolsPicker,
+				desc = "Workspace Symbols",
+			},
+			{
+				"<leader>sr",
+				LspReferencePicker,
+				desc = "References",
 			},
 			{
 				"<leader>i",
@@ -53,6 +129,9 @@ return {
 				-- 	action = ":Telescope find_files",
 				-- 	key = "f",
 				-- },
+			},
+			terminal = {
+				enabled = true,
 			},
 			scroll = {
 				animate = {
