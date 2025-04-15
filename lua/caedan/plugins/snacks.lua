@@ -121,6 +121,20 @@ return {
 				end,
 				desc = "Find files",
 			},
+			{
+				"<leader>ef",
+				desc = "Focus the current buffer in Snacks Explorer",
+				function()
+					require("snacks").explorer.reveal()
+				end,
+			},
+			{
+				"<leader>et",
+				desc = "Toggle Snacks Explorer",
+				function()
+					require("snacks").explorer.open()
+				end,
+			},
 		},
 		opts = {
 			dashboard = {
@@ -150,9 +164,19 @@ return {
 			-- 		scope = { enabled = true },
 			-- 		chunk = { enabled = true, hl = "SnacksIndent" },
 			-- 	},
+			---@class snacks.explorer.Config
+			explorer = {
+				enabled = true,
+				replace_netrw = true,
+			},
 			notifier = { enabled = true },
 			picker = {
 				enabled = true,
+				sources = {
+					explorer = {
+						hidden = true,
+					},
+				},
 				formatters = {
 					file = {
 						filename_first = false,
