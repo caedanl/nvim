@@ -18,6 +18,7 @@ require("caedan.lazy")
 vim.cmd.colorscheme("tokyonight-moon")
 -- vim.cmd.colorscheme("vague")
 -- vim.cmd.colorscheme("catppuccin-latte")
+-- vim.cmd.colorscheme("catppuccin-macchiato")
 -- vim.cmd.colorscheme("onehalfdark")
 -- vim.cmd.colorscheme("vesper")
 -- vim.cmd.colorscheme("jb")
@@ -31,6 +32,11 @@ auto_theme_custom.inactive.c.bg = ""
 -- auto_theme_custom.insert.c.bg = ""
 -- auto_theme_custom.visual.c.bg = ""
 -- auto_theme_custom.command.c.bg = ""
+
+vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
 
 lualine.setup({
 	options = {
