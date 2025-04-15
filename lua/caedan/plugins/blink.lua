@@ -136,12 +136,12 @@ return {
 					-- opts.desc = "Show LSP definitions"
 					-- keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", keymapOpts) -- show lsp definitions
 
-					keymapOpts.desc = "Show LSP implementations"
-					keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", keymapOpts) -- show lsp implementations
-
-					keymapOpts.desc = "Show LSP type definitions"
-					keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", keymapOpts) -- show lsp type definitions
-
+					-- keymapOpts.desc = "Show LSP implementations"
+					-- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", keymapOpts) -- show lsp implementations
+					--
+					-- keymapOpts.desc = "Show LSP type definitions"
+					-- keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", keymapOpts) -- show lsp type definitions
+					--
 					keymapOpts.desc = "Smart rename"
 					keymap.set("n", "<leader>rn", vim.lsp.buf.rename, keymapOpts) -- smart rename
 
@@ -159,6 +159,10 @@ return {
 				config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
 				lspconfig[server].setup(config)
 			end
+
+			vim.diagnostic.config({
+				virtual_text = true,
+			})
 		end,
 	},
 }
