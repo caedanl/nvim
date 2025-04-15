@@ -13,7 +13,6 @@ return {
 		init = function()
 			-- vim.cmd.colorscheme("tokyonight-night")
 			-- vim.cmd.colorscheme("tokyonight")
-
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
@@ -31,40 +30,6 @@ return {
 				},
 			})
 		end,
-	},
-	{
-		"datsfilipe/vesper.nvim",
-		opts = {
-			transparent = true,
-		},
-	},
-	{
-		"nickkadutskyi/jb.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-		config = function()
-			require("jb").setup({ transparent = true })
-			-- vim.cmd("colorscheme jb")
-		end,
-	},
-	{
-		"clearaspect/onehalf",
-		lazy = false,
-		priority = 1000,
-	},
-	{
-		"vague2k/vague.nvim",
-		config = function()
-			-- NOTE: you do not need to call setup if you don't want to.
-			require("vague").setup({
-				transparent = true,
-				-- optional configuration here
-			})
-		end,
-	},
-	{
-		"RRethy/base16-nvim",
 	},
 	{
 		"catppuccin/nvim",
