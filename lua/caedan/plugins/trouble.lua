@@ -1,6 +1,6 @@
 return {
 	"folke/trouble.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
+	dependencies = { "folke/todo-comments.nvim" },
 	opts = {
 		focus = true,
 		open_no_results = true,

@@ -144,6 +144,9 @@ return {
 				-- 	key = "f",
 				-- },
 			},
+			statuscolumn = {
+				enabled = true,
+			},
 			terminal = {
 				enabled = true,
 			},

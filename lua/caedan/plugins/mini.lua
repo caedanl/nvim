@@ -1,18 +1,20 @@
 return {
 	{
 		"echasnovski/mini.nvim",
+		lazy = false,
+		-- event = "InsertEnter",
 		config = function()
-			-- require('mini.statusline').setup({use_icons = false})
-
-			-- require('mini.files').setup()
-
 			require("mini.pairs").setup()
 
-			-- require("mini.tabline").setup()
+			require("mini.icons").setup({
+				style = "ascii",
+			})
+
+			-- require("mini.diff").setup({
+			-- 	view = {
+			-- 		style = "sign",
+			-- 	},
+			-- })
 		end,
-		lazy = false,
-		-- keys = {
-		--   {"<leader>o", ":lua MiniFiles.open()<CR>", desc = "MiniFiles"}
-		-- }
 	},
 }

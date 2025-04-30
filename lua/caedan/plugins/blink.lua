@@ -4,9 +4,9 @@ return {
 		-- lazy = false, -- lazy loading handled internally
 		-- optional: provides snippets for the snippet source
 		dependencies = "rafamadriz/friendly-snippets",
-
 		-- version = "v0.9.*",
-		version = "0.12.3",
+		-- version = "0.12.3",
+		version = "1.*",
 		---@modeule "blink.cmp"
 		---@type blink.cmp.Config
 		opts = {
