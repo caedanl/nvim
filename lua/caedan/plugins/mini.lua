@@ -7,7 +7,7 @@ return {
 			require("mini.pairs").setup()
 
 			require("mini.icons").setup({
-				style = "ascii",
+				style = "glyphs",
 			})
 
 			-- require("mini.diff").setup({
